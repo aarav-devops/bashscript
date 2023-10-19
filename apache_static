@@ -1,0 +1,11 @@
+#! /bin/bash
+sudo apt update -y && apt install wget unzip apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+mkdir -p /tmp/bride
+cd /tmp/bride
+wget https://www.free-css.com/assets/files/free-css-templates/download/page294/primecare.zip
+unzip primecare.zip
+sudo cp -r primecare-html/* /var/www/html/
+sudo systemctl restart apache2
+rm -rf /tmp/bride
