@@ -1,0 +1,18 @@
+#! /bin/bash
+
+APPLICATION="wget unzip apache2"
+SERVICE="apache2"
+URL="https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip"
+TEMPORARY="/tmp/bride"
+
+#! /bin/bash
+sudo apt update -y && apt install $APPLICATION -y
+sudo systemctl start $SERVICE
+sudo systemctl enable $SERVICE
+mkdir -p $TEMPORARY
+cd $TEMPORARY
+wget $URL
+unzip little-fashion.zip
+sudo cp -r 2127_little_fashion/* /var/www/html/
+sudo systemctl restart $SERVICE
+rm -rf $TEMPORARY
