@@ -1,0 +1,14 @@
+$0 			-	The name of Bash Script.
+$1 -$9 		-	The first 9 arguments to the Bash script. 
+$#			- 	How many arguments were passed to the Bash script.
+$@			-	All the arguments supplied to the Bash script.
+$?			- 	The exit status of the most recently run process.
+$$			-	The process ID of the current script.
+$USER		-	The username of the machinethe script is running on.
+$HOSTNAME	- 	The hostname of the machine the script was started.
+$SECONDS	-	The number of seconds since the script was started.
+$RANDOM		- 	Returns a differet random numbereach time is it reffered to.
+$LINENO		-	Returns the current line number in the Bash script. 
+
+
+https://visualpath.in/devopstutorials/devops
