@@ -1,0 +1,36 @@
+#! /bin/bash
+
+APPLICATION="wget unzip apache2"
+SERVICE="apache2"
+# 1 - URL="https://www.free-css.com/assets/files/free-css-templates/download/page296/little-fashion.zip"
+# 2 - TEMPLATE_NAME ="little-fashion.zip"
+# 3 - ARTIFACT_NAME ="2127_little_fashion"
+TEMPORARY="/tmp/bride"
+
+#! /bin/bash
+sudo apt update -y && apt install $APPLICATION -y
+sudo systemctl start $SERVICE
+sudo systemctl enable $SERVICE
+mkdir -p $TEMPORARY
+cd $TEMPORARY
+wget $1 
+unzip $2
+sudo cp -r $3/* /var/www/html/
+sudo systemctl restart $SERVICE
+rm -rf $TEMPORARY
+
+
+                                  -----------------------------------------------------        
+                                                    EXAMLE INPUT
+                                  -----------------------------------------------------    
+
+
+  ./5_args_web.sh https://www.free-css.com/assets/files/free-css-templates/download/page296/neogym.zip neogym.zip neogym-html
+
+	./5_args_web.sh https://www.free-css.com/assets/files/free-css-templates/download/page296/carvilla.zip carvilla.zip carvilla-v1.0
+
+	./5_args_web.sh https://www.free-css.com/assets/files/free-css-templates/download/page296/inance.zip inance.zip inance-html
+
+	./5_args_web.sh https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip mediplus-lite.zip mediplus-lite
+
+	./5_args_web.sh https://www.free-css.com/assets/files/free-css-templates/download/page296/oxer.zip oxer.zip oxer-html
