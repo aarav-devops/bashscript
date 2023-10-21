@@ -1,0 +1,25 @@
+------------------------
+									QUOTES
+							------------------------
+
+
+""	=	Assigning the value
+''	=	Reassiging the value.
+
+Variable works on the double quotes. 
+Variable does not work in the single quotes. 
+
+
+Example:
+
+* echo "Due to $VIRUS virus company have lost $9 Million."
+
+It prints - Due to coVid 19 virus company have lost  Million.
+
+* echo "Due to $VIRUS virus company have lost $9 Million."
+
+Due to $VIRUS virus company have lost $9 Million.
+
+
+CORRECT WAY TO WRITE IS :
+echo "Due to $VIRUS virus company have lost \$9 Million."
