@@ -1,0 +1,54 @@
+UP="uptime"
+echo $UP
+  print - uptime
+
+(here ` = backtick)
+UP=`uptime`     
+echo $uptime
+  print = 19:27:41 up  1:05,  6 users,  load average: 0.00, 0.00, 0.00
+
+CURRENT_USER=$(who)
+echo $CURRENT_USER
+  print = ubuntu pts/0 2023-10-21 18:23 (49.36.139.64) ubuntu pts/1 2023-10-21 18:23 (49.36.139.64) ubuntu pts/2 2023-10-21 18:54 (49.36.139.64) ubuntu pts/3 2023-10-21 18:54 (49.36.139.64) ubuntu pts/4 2023-10-21 19:12 (49.36.139.64) ubuntu pts/5 2023-10-21 19:12 (49.36.139.64)
+
+
+free -m 
+               total        used        free      shared  buff/cache   available
+Mem:             949         192         354           1         402         600
+Swap:              0           0           0
+
+
+free -m | grep Mem
+  Mem:             949         192         354           1         402         600
+
+FREE_RAM=`free -m | grep Mem | awk '{print $4}'`
+echo "Free RAM is $FREE_RAM mb."     
+  print - Free RAM is 354 mb.
+
+  
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+
+echo "Welcome $USER on $HOSTNAME."
+echo "******************************************************"
+
+FREE_RAM=$(free -m | grep Mem | awk '{print $4}')
+LOAD=$(uptime | awk '{print $9}')
+ROOTFREE=$(df -h | grep 'dev/root' | awk '{print $4}')
+
+echo "******************************************************"
+echo "Available free RAM is $FREE_RAM MB"
+echo "******************************************************"
+
+echo "******************************************************"
+echo "Current Load Average $LOAD"
+echo "******************************************************"
+
+echo "******************************************************"
+echo "Free ROOT partition size is $ROOTFREE"
+echo "******************************************************"
+
+echo ""
+echo ""
+echo ""
