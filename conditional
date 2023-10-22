@@ -1,18 +1,15 @@
 #! /bin/bash
-
 read -p "Enter a Number : " NUM
 echo
-
   if [ $NUM -gt 100]
-  then
+    then
     echo "We hav entered IF block"
     sleep 5
     echo "Your Number is greater than 100"
     echo 
     date
-
   fi 
-  echo "Scrip execution completed successfully"
+echo "Scrip execution completed successfully"
 
 --------------------------------------------------------------------------------
 
@@ -20,16 +17,15 @@ echo
 
 read -p "Enter a Number : " NUM
 echo
-
   if [ $NUM -gt 100]
-  then
+    then
     echo "We hav entered IF block"
     sleep 5
     echo "Your Number is greater than 100"
     echo 
     date
   else
-  echo "Your number is less than 100"
+    echo "Your number is less than 100"
   fi 
   echo "Scrip execution completed successfully"
 
@@ -40,15 +36,46 @@ echo
  #! /bin/bash
 
  VALUE=$(ip addr show | grep -v LOOPBACK | grep -ic mtu)
-
-   if [ $VALUE -eq 1 ]
+  if [ $VALUE -eq 1 ]
     then
-      echo "Found single active network interface"
+    echo "Found single active network interface"
 
   elif [ $VALUE -gt 1 ]
     then
       echo "Found multiple active network interface"
 
   else 
-      echo "No active network interface"
-fi
+    echo "No active network interface"
+  fi
+
+
+---------------------------------------------------------------------------------------
+
+#! /bin/bash
+
+echo "---------------------------------------------------------------"
+date
+echo "---------------------------------------------------------------"
+
+ls /var/run/apache2/apache2.pid &> /dev/null 
+
+if [ $? -eq 0 ]
+	then
+		echo "Apache process is already running"
+	else
+		echo "Apache process is not running"
+		sleep 5
+		echo ""
+		echo ""
+		echo "------------------------------------------------------------"
+		echo "				Starting the process"
+		echo "------------------------------------------------------------"
+		systemctl start apache2
+
+	if [ $? -eq 0 ]
+		then 
+			echo "Process start successfully"
+		else
+			echo "Process starting failed, contact the admin."
+		fi
+	fi
