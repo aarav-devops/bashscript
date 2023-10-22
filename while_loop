@@ -1,0 +1,25 @@
+#! /bin/bash
+counter=0
+        while [ $counter -lt 5 ]
+        do
+                echo "Looping..."
+                sleep 2
+                echo "Value of counter is $counter"
+                counter=$(( counter + 1 ))
+        done
+        echo "Out of the loop. CONDITION SATISFIED"
+
+
+-------------------------------------------------------------------------------------
+
+
+
+#! /bin/bash
+counter=1
+        while true
+        do
+                echo "Looping..."
+                sleep 2
+                echo "Value of counter is $counter"
+                counter=$(( counter * 2 ))
+        done
